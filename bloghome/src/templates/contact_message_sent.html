@@ -1,0 +1,13 @@
+{% extends 'base.html' %}{% load static from staticfiles %} 
+{% block title %}Contact{{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container"><br><br>
+    <div class="col-lg-12">
+        <h1>Thank you very much for your message! I'll try to answer as soon as possible</h1>
+        <a href="{% url 'posts:list' %}">Go back to Home</a>
+    </div>
+    
+</div>
+
+{% endblock %}

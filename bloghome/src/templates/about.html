@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% load static from staticfiles %} {% block content %}
+
+<h2 style="font-size:2.5em; margin-top: 40px; margin-bottom: 40px; text-align: center;">About Me</h2>
+<div class="container">
+<div class="col-lg-10 col-lg-offset-1">
+    <div class="content_d">
+        <p>Raised and born in Managua, Nicaragua. Always passionate about astronomy, space exploration and now decided 
+            to write about the latest news related to research in the fields of Physics, Quantum physics, Astrophysics and Astronomy.
+        </p>
+        <p>My hobbies vary, but between playing chess and reading about astrophysics, somehow space always gets all my attention.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat sit, eum nobis delectus eos dolorum commodi, voluptatum quos quas odit a debitis, quidem eligendi sapiente repudiandae, illum nulla facere quia!</p>
+    </div>
+</div>
+<div class="col-lg-2 about_list">
+        <img class="about_pic" src="{% static 'aboutme.jpg' %}" alt="foto.png">
+        <li>email:lezamaral@yahoo.es</li>
+        <li>linkedIn:/in/raul-lezama</li>
+        <li>Web Developer</li>
+    </div>
+<br>
+    <div class="col-lg-8">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem tempore maiores praesentium ipsam pariatur quam dolore! Cupiditate voluptate tenetur quod rem ipsa, dolorum voluptas, molestias necessitatibus quis ratione deserunt laborum!
+    </div>
+
+</div>
+
+{% endblock %}

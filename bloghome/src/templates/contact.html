@@ -1,0 +1,71 @@
+{% extends 'base.html' %}{% load static from staticfiles %} 
+{% block title %}Contact - {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>Let's talk!</h1>
+<div class="container">
+    <div class="col-lg-12">
+        <form role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+    </div>
+    
+</div>
+
+
+<section class="contact-form vertical-description">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="row m-bottom-60">
+                            <div class="col-sm-6 m-bottom-30">
+                                <h3>Phone Call</h3>
+                                <a href="tel:+50586635944">+505.75240725</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <h3>Email</h3>
+                                <a href="mailto:lead@kronoscode.com">raullezamah@gmail.com</a>
+                            </div>
+                        </div>
+                        <form action="">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="theme">Theme</label>
+                                <select class="form-control" id="theme">
+                                  <option>Web &amp; App Design</option>
+                                  <option>Web &amp; App Development</option>
+                                  <option>Brand &amp; Identity Design</option>
+                                  <option>SEO</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="textarea">Example textarea</label>
+                                <textarea class="form-control" id="textarea" rows="5" placeholder=""></textarea>
+                            </div>
+                            <div class="text-center m-top-60">
+                                <input type="submit" class="btn-custom" value="SUBMIT"></input> 
+                            </div>
+                        </form>
+                        <ul class="social-icons">
+                            <li><a href="#"><img src="img/icon-github.png" alt=""></a></li>
+                            <li><a href="#"><img src="img/icon-facebook.png" alt=""></a> </li>
+                            <li><a href="#"><img src="img/icon-path.png" alt=""></a> </li>
+                            <li><a href="#"><img src="img/icon-twitter.png" alt=""></a> </li>
+                            <li><a href="#"><img src="img/icon-instagram.png" alt=""></a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}

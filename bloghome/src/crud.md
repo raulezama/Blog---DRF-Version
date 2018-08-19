@@ -1,0 +1,4 @@
+CREATE -- MAKE NEW
+RETRIEVE -- GET -- LIST / Search
+UPDATE -- Edit
+DELETE -- Delete

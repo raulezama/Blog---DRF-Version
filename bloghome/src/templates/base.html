@@ -1,0 +1,150 @@
+{% load staticfiles %}
+<!--DOCTYPE html -->
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href='{% static "/css/base.css" %}'>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu"/>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <title>{% block head_title %}Quasi-stellar{% endblock head_title %}</title>
+
+    {% block head_extra %} {% endblock head_extra %}
+</head>
+
+<body> 
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+    {% include "messages_display.html" %}
+    
+
+<div class="button">
+  <a class="btn-open" href="#"></a>
+</div>
+
+<div class="overlay">
+  <div class="wrap">
+    <ul class="wrap-nav">
+      <!-- <li><a href="#">About</a>
+      <ul>
+        <li><a href="#">About Company</a></li>
+        <li><a href="#">Designers</a></li>
+        <li><a href="#">Developers</a></li>
+        <li><a href="#">Pets</a></li>
+      </ul>
+      </li> -->
+      <li>
+      <ul>
+            <a class="description">{% block post_detail_link %}{% endblock %}</a>
+            <a href="{% url 'posts:list' %}">Home</a>
+            {% if not request.user.is_authenticated %}
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'login' %}">Login</a>
+            {% else %}
+            <a href="{% url 'logout' %}">Logout</a>
+            {% endif %}
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+
+      </ul>
+      </li>
+     <!-- <li><a href="#">Work</a>
+      <ul>
+        <li><a href="#">Web</a></li>
+        <li><a href="#">Graphic</a></li>
+        <li><a href="#">Apps</a></li>
+      </ul>
+      </li> -->
+    </ul>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/raúl-lezama/">
+      <div class="social-icon">
+        <i class="fa fa-linkedin"></i>
+      </div>
+      </a>
+      <a href="https://twitter.com/_raulezama">
+      <div class="social-icon">
+        <i class="fa fa-twitter"></i>
+      </div>
+      </a>
+      <a href="https://www.behance.net/raulezama/">
+      <div class="social-icon">
+        <i class="fa fa-behance"></i>
+      </div>
+      </a>
+      <p style="font-style: italic;">
+        Powered by Django<br>
+      </p>
+    </div>
+  </div>
+</div>
+     
+<!--      Content -->
+<div class="container">
+  {% block content %}    
+    {% endblock content %}
+</div>  
+        
+
+<script
+  src="http://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>    
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.4.0/marked.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".content-markdown").each(function(){
+            var content = $(this).text()
+            var markedContent = marked(content)
+            $(this).html(markedContent)
+    })
+    $(".post-detail-item img").each(function(){
+            $(this).addClass("img-responsive");
+    })
+
+    $(".comment-reply-btn").click(function(event){
+        event.preventDefault();
+        $(this).parent().next(".comment-reply").fadeToggle();
+    })
+});
+</script>
+<script>
+  $(document).ready(function(){
+    $(".button a").click(function(){
+        $(".overlay").fadeToggle(200);
+       $(this).toggleClass('btn-open').toggleClass('btn-close');
+    });
+});
+$('.overlay').on('click', function(){
+    $(".overlay").fadeToggle(200);   
+    $(".button a").toggleClass('btn-open').toggleClass('btn-close');
+    open = false;
+
+
+});
+</script>
+
+</body>
+
+</html>
+
+
+
