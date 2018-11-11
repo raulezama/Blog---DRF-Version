@@ -180,9 +180,3 @@ SENDGRID_API_KEY = "SG.VUcXhEpsSsq8nwi_SX-d4A.BggXfjcZ-O45TZMJu5QWvmnbKW9bA5xPvX
 
 
 
-
-"""
-curl -X POST -d "username=raulezama&password=A1ucard3m" http://127.0.0.1:8000/api/auth/token
-"""
-
-
